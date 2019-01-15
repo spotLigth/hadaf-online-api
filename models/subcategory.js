@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Subcategory.associate = function(models) {
-    // associations can be defined here
+    Subcategory.belongsTo(models.Category)
   };
   return Subcategory;
 };

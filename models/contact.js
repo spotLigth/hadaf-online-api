@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     mailBox: DataTypes.STRING
   }, {});
   Contact.associate = function(models) {
-    // associations can be defined here
+    Contact.hasOne(models.Company);
   };
   return Contact;
 };

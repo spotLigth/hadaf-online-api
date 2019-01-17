@@ -1,21 +1,29 @@
-const Query = `
- extend type Query {
-   contacts: [Contact]
- }
+const db = require('../../models');
+const {
+    gql
+} = require('apollo-server-express');
+
+const Query = gql `
+    extend type Query {
+        contacts: [Contact]
+        contact(id: Int): Contact
+    }
 `;
 
 module.exports.queryTypes = () => [Query];
 
 module.exports.queryResolvers = {
     Query: {
-        contacts: () => ([{
-                title: "Harry Potter and the Sorcerer's stone",
-                author: 'J.K. Rowling',
-            },
-            {
-                title: 'Jurassic Park',
-                author: 'Michael Crichton',
-            },
-        ])
+        contacts: () => {
+            return db.Contact.findAll()
+        },
+
+        contact: (parent, args) => {
+            return db.Contact.findOne({
+                where: {
+                    id: args.id
+                }
+            })
+        }
     }
 };

@@ -4,6 +4,7 @@ const {
 
 const Contact = gql `
   type Contact {
+    id: Int,
     address1: String,
     address2: String,
     email1: String,

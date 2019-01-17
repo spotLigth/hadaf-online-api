@@ -9,15 +9,15 @@ const {
 
 
 const Query = gql `
- type Query {
-   status: String
- }
+    type Query {
+        status: String
+    }
 `;
 
 const Mutation = gql `
- type Mutation {
-   _empty: String
- }
+    type Mutation {
+    _empty: String
+    }
 `;
 
 let resolvers = {

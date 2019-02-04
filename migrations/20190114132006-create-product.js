@@ -26,6 +26,20 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER
       },
+      subcategoryId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Subcategories",
+          key: "id"
+        }
+      },
+      companyId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Companies",
+          key: "id"
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

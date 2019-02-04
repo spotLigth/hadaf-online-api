@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     code: DataTypes.STRING
   }, {});
   Company.associate = function(models) {
-    // associations can be defined here
+    Company.belongsTo(models.Contact)
   };
   return Company;
 };

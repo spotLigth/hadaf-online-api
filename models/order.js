@@ -5,8 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     quantity: DataTypes.INTEGER
   }, {});
-  Order.associate = function(models) {
-    // associations can be defined here
+  Order.associate = function (models) {
+    Order.belongsTo(models.Product)
+    Order.belongsTo(models.User)
   };
   return Order;
 };

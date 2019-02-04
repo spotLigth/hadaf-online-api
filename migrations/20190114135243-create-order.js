@@ -17,6 +17,13 @@ module.exports = {
       quantity: {
         type: Sequelize.INTEGER
       },
+      productId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Products",
+          key: "id"
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
